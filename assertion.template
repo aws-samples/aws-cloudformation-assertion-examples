@@ -458,7 +458,7 @@
 
     "RecordSet": {
             "Type": "AWS::Route53::RecordSetGroup",
-            "Condition": UseALBSSL,
+            "Condition": "UseALBSSL",
             "Properties": {
                 "HostedZoneName": {
                     "Fn::Join": [
@@ -517,7 +517,7 @@
                                  ]
                             }
                         }
-                    },
+                    }
                     
                 ]
             }   
@@ -532,6 +532,7 @@
                     "",
                     [
                         
+                      {
                       "Fn::If": [
                           "UseALBSSL",
                           {
@@ -585,7 +586,7 @@
                               ]
                           }
                       ]
-                                
+                      }          
                         
                     ]
                 ]
